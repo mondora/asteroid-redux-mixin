@@ -1,6 +1,6 @@
 import {expect} from "chai";
 
-import * as reducers from "../src/reducer";
+import * as reducers from "../src/reducers";
 
 describe("loggedIn", () => {
     it("redux dummy event (test default state)", () => {
