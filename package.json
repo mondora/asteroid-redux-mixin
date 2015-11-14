@@ -1,0 +1,45 @@
+{
+  "name": "asteroid-redux-mixin",
+  "version": "1.0.0",
+  "description": "Asteroid-Redux bridge",
+  "main": "lib/mixin.js",
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "clean": "rimraf lib coverage",
+    "coverage": "NODE_ENV=test babel-node $(npm bin)/isparta cover $(npm bin)/_mocha -- --recursive",
+    "coveralls": "cat coverage/lcov.info | coveralls",
+    "dev": "npm test -- --watch",
+    "lint": "eslint src test",
+    "prepublish": "npm run clean && npm run build",
+    "test": "NODE_ENV=test mocha --compilers js:babel/register --recursive"
+  },
+  "author": "Paolo Scanferla <paolo.scanferla@mondora.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mondora/asteroid-redux-mixin.git"
+  },
+  "keywords": [
+    "asteroid",
+    "redux"
+  ],
+  "bugs": {
+    "url": "https://github.com/mondora/asteroid-redux-mixin/issues"
+  },
+  "devDependencies": {
+    "babel": "^5.8.29",
+    "babel-core": "^5.8.33",
+    "babel-eslint": "^4.1.3",
+    "babel-plugin-rewire": "^0.1.22",
+    "chai": "^3.4.0",
+    "coveralls": "^2.11.4",
+    "eslint": "^1.8.0",
+    "isparta": "^3.5.0",
+    "mocha": "^2.3.3",
+    "sinon": "^1.17.2",
+    "sinon-chai": "^2.8.0"
+  },
+  "peerDependencies": {
+    "redux": "^3.0.4"
+  }
+}
