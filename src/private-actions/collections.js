@@ -15,10 +15,10 @@ function createCollectionAction (type) {
     });
 }
 
-export const ASTEROID_COLLECTION_ADD = "ASTEROID_COLLECTION_ADD";
-export const ASTEROID_COLLECTION_CHANGE = "ASTEROID_COLLECTION_CHANGE";
-export const ASTEROID_COLLECTION_REMOVE = "ASTEROID_COLLECTION_REMOVE";
+export const ASTEROID_PRIVATE_COLLECTION_ADD = "ASTEROID_PRIVATE_COLLECTION_ADD";
+export const ASTEROID_PRIVATE_COLLECTION_CHANGE = "ASTEROID_PRIVATE_COLLECTION_CHANGE";
+export const ASTEROID_PRIVATE_COLLECTION_REMOVE = "ASTEROID_PRIVATE_COLLECTION_REMOVE";
 
-export const add = createCollectionAction(ASTEROID_COLLECTION_ADD);
-export const change = createCollectionAction(ASTEROID_COLLECTION_CHANGE);
-export const remove = createCollectionAction(ASTEROID_COLLECTION_REMOVE);
+export const add = createCollectionAction(ASTEROID_PRIVATE_COLLECTION_ADD);
+export const change = createCollectionAction(ASTEROID_PRIVATE_COLLECTION_CHANGE);
+export const remove = createCollectionAction(ASTEROID_PRIVATE_COLLECTION_REMOVE);

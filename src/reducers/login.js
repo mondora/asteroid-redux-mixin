@@ -1,11 +1,11 @@
 import {
-    ASTEROID_LOGIN_START,
-    ASTEROID_LOGIN_SUCCESS,
-    ASTEROID_LOGIN_FAIL,
-    ASTEROID_LOGOUT_START,
-    ASTEROID_LOGOUT_SUCCESS,
-    ASTEROID_LOGOUT_FAIL
-} from "../actions/login";
+    ASTEROID_PRIVATE_LOGIN_START,
+    ASTEROID_PRIVATE_LOGIN_SUCCESS,
+    ASTEROID_PRIVATE_LOGIN_FAIL,
+    ASTEROID_PRIVATE_LOGOUT_START,
+    ASTEROID_PRIVATE_LOGOUT_SUCCESS,
+    ASTEROID_PRIVATE_LOGOUT_FAIL
+} from "../private-actions/login";
 
 const defaultLoginState = {
     loggingIn: false,
@@ -20,14 +20,14 @@ const defaultLoginState = {
 
 export function login (state = defaultLoginState, {type, payload}) {
     switch (type) {
-    case ASTEROID_LOGIN_START:
+    case ASTEROID_PRIVATE_LOGIN_START:
         return {
             ...state,
             loggingIn: true,
             loginFailed: false,
             loginError: null
         };
-    case ASTEROID_LOGIN_SUCCESS:
+    case ASTEROID_PRIVATE_LOGIN_SUCCESS:
         return {
             ...state,
             loggingIn: false,
@@ -36,21 +36,21 @@ export function login (state = defaultLoginState, {type, payload}) {
             loggedIn: true,
             userId: payload.userId
         };
-    case ASTEROID_LOGIN_FAIL:
+    case ASTEROID_PRIVATE_LOGIN_FAIL:
         return {
             ...state,
             loggingIn: false,
             loginFailed: true,
             loginError: payload
         };
-    case ASTEROID_LOGOUT_START:
+    case ASTEROID_PRIVATE_LOGOUT_START:
         return {
             ...state,
             loggingOut: true,
             loginFailed: false,
             loginError: null
         };
-    case ASTEROID_LOGOUT_SUCCESS:
+    case ASTEROID_PRIVATE_LOGOUT_SUCCESS:
         return {
             ...state,
             loggingOut: false,
@@ -59,7 +59,7 @@ export function login (state = defaultLoginState, {type, payload}) {
             loggedIn: false,
             userId: null
         };
-    case ASTEROID_LOGOUT_FAIL:
+    case ASTEROID_PRIVATE_LOGOUT_FAIL:
         return {
             ...state,
             loggingOut: false,

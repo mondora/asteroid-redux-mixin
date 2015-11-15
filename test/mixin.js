@@ -33,7 +33,7 @@
 //                 }
 //             });
 //             expect(reduxStore.dispatch).to.have.been.calledWith({
-//                 type: "ASTEROID_COLLECTION_ADD",
+//                 type: "ASTEROID_PRIVATE_COLLECTION_ADD",
 //                 payload: {
 //                     collection: "collection",
 //                     id: "id",
@@ -54,7 +54,7 @@
 //                 cleared: ["key"]
 //             });
 //             expect(reduxStore.dispatch).to.have.been.calledWith({
-//                 type: "ASTEROID_COLLECTION_CHANGE",
+//                 type: "ASTEROID_PRIVATE_COLLECTION_CHANGE",
 //                 payload: {
 //                     collection: "collection",
 //                     id: "id",
@@ -72,7 +72,7 @@
 //                 id: "id"
 //             });
 //             expect(reduxStore.dispatch).to.have.been.calledWith({
-//                 type: "ASTEROID_COLLECTION_REMOVE",
+//                 type: "ASTEROID_PRIVATE_COLLECTION_REMOVE",
 //                 payload: {
 //                     collection: "collection",
 //                     id: "id"

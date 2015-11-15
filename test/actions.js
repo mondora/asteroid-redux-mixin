@@ -4,11 +4,11 @@
 //
 // describe("actions module", () => {
 //     it("exports five action types and five action creators", () => {
-//         expect(actions.ASTEROID_COLLECTION_ADD).to.equal("ASTEROID_COLLECTION_ADD");
-//         expect(actions.ASTEROID_COLLECTION_CHANGE).to.equal("ASTEROID_COLLECTION_CHANGE");
-//         expect(actions.ASTEROID_COLLECTION_REMOVE).to.equal("ASTEROID_COLLECTION_REMOVE");
-//         expect(actions.ASTEROID_LOGGED_IN).to.equal("ASTEROID_LOGGED_IN");
-//         expect(actions.ASTEROID_LOGGED_OUT).to.equal("ASTEROID_LOGGED_OUT");
+//         expect(actions.ASTEROID_PRIVATE_COLLECTION_ADD).to.equal("ASTEROID_PRIVATE_COLLECTION_ADD");
+//         expect(actions.ASTEROID_PRIVATE_COLLECTION_CHANGE).to.equal("ASTEROID_PRIVATE_COLLECTION_CHANGE");
+//         expect(actions.ASTEROID_PRIVATE_COLLECTION_REMOVE).to.equal("ASTEROID_PRIVATE_COLLECTION_REMOVE");
+//         expect(actions.ASTEROID_PRIVATE_LOGGED_IN).to.equal("ASTEROID_PRIVATE_LOGGED_IN");
+//         expect(actions.ASTEROID_PRIVATE_LOGGED_OUT).to.equal("ASTEROID_PRIVATE_LOGGED_OUT");
 //         expect(actions.add).to.be.a("function");
 //         expect(actions.change).to.be.a("function");
 //         expect(actions.remove).to.be.a("function");
@@ -27,7 +27,7 @@
 //             }
 //         });
 //         expect(ret_1).to.deep.equal({
-//             type: "ASTEROID_COLLECTION_ADD",
+//             type: "ASTEROID_PRIVATE_COLLECTION_ADD",
 //             payload: {
 //                 collection: "collection",
 //                 id: "id",
@@ -44,7 +44,7 @@
 //             }
 //         });
 //         expect(ret_2).to.deep.equal({
-//             type: "ASTEROID_COLLECTION_ADD",
+//             type: "ASTEROID_PRIVATE_COLLECTION_ADD",
 //             payload: {
 //                 collection: "collection",
 //                 id: "id",
@@ -67,7 +67,7 @@
 //             cleared: ["key"]
 //         });
 //         expect(ret_1).to.deep.equal({
-//             type: "ASTEROID_COLLECTION_CHANGE",
+//             type: "ASTEROID_PRIVATE_COLLECTION_CHANGE",
 //             payload: {
 //                 collection: "collection",
 //                 id: "id",
@@ -86,7 +86,7 @@
 //             cleared: ["key"]
 //         });
 //         expect(ret_2).to.deep.equal({
-//             type: "ASTEROID_COLLECTION_CHANGE",
+//             type: "ASTEROID_PRIVATE_COLLECTION_CHANGE",
 //             payload: {
 //                 collection: "collection",
 //                 id: "id",
@@ -106,7 +106,7 @@
 //             id: "id"
 //         });
 //         expect(ret_1).to.deep.equal({
-//             type: "ASTEROID_COLLECTION_REMOVE",
+//             type: "ASTEROID_PRIVATE_COLLECTION_REMOVE",
 //             payload: {
 //                 collection: "collection",
 //                 id: "id"
@@ -117,7 +117,7 @@
 //             id: "-id"
 //         });
 //         expect(ret_2).to.deep.equal({
-//             type: "ASTEROID_COLLECTION_REMOVE",
+//             type: "ASTEROID_PRIVATE_COLLECTION_REMOVE",
 //             payload: {
 //                 collection: "collection",
 //                 id: "id"
@@ -130,7 +130,7 @@
 //     it("returns a FSA with the correct payload", () => {
 //         const ret = actions.logIn("userId");
 //         expect(ret).to.deep.equal({
-//             type: "ASTEROID_LOGGED_IN",
+//             type: "ASTEROID_PRIVATE_LOGGED_IN",
 //             payload: {
 //                 userId: "userId"
 //             }
@@ -142,7 +142,7 @@
 //     it("returns a FSA with the correct payload", () => {
 //         const ret = actions.logOut();
 //         expect(ret).to.deep.equal({
-//             type: "ASTEROID_LOGGED_OUT"
+//             type: "ASTEROID_PRIVATE_LOGGED_OUT"
 //         });
 //     });
 // });

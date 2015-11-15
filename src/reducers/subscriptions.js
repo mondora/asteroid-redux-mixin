@@ -1,9 +1,9 @@
 import {
-    ASTEROID_SUBSCRIPTION_START,
-    ASTEROID_SUBSCRIPTION_READY,
-    ASTEROID_SUBSCRIPTION_STOP,
-    ASTEROID_SUBSCRIPTION_FAIL
-} from "../actions/subscriptions";
+    ASTEROID_PRIVATE_SUBSCRIPTION_START,
+    ASTEROID_PRIVATE_SUBSCRIPTION_READY,
+    ASTEROID_PRIVATE_SUBSCRIPTION_STOP,
+    ASTEROID_PRIVATE_SUBSCRIPTION_FAIL
+} from "../private-actions/subscriptions";
 
 const defaultSubscriptionState = {
     pending: false,
@@ -14,17 +14,17 @@ const defaultSubscriptionState = {
 
 function subscription (state = defaultSubscriptionState, {type, payload}) {
     switch (type) {
-    case ASTEROID_SUBSCRIPTION_START:
+    case ASTEROID_PRIVATE_SUBSCRIPTION_START:
         return {
             ...defaultSubscriptionState,
             pending: true
         };
-    case ASTEROID_SUBSCRIPTION_READY:
+    case ASTEROID_PRIVATE_SUBSCRIPTION_READY:
         return {
             ...defaultSubscriptionState,
             ready: true
         };
-    case ASTEROID_SUBSCRIPTION_FAIL:
+    case ASTEROID_PRIVATE_SUBSCRIPTION_FAIL:
         return {
             ...defaultSubscriptionState,
             failed: true,
@@ -38,14 +38,14 @@ function subscription (state = defaultSubscriptionState, {type, payload}) {
 export function subscriptions (state = {}, action) {
     const {type, meta} = action;
     switch (type) {
-    case ASTEROID_SUBSCRIPTION_START:
-    case ASTEROID_SUBSCRIPTION_READY:
-    case ASTEROID_SUBSCRIPTION_STOP:
+    case ASTEROID_PRIVATE_SUBSCRIPTION_START:
+    case ASTEROID_PRIVATE_SUBSCRIPTION_READY:
+    case ASTEROID_PRIVATE_SUBSCRIPTION_STOP:
         return {
             ...state,
             [meta.name]: subscription(state[meta.name], action)
         };
-    case ASTEROID_SUBSCRIPTION_FAIL:
+    case ASTEROID_PRIVATE_SUBSCRIPTION_FAIL:
         const newState = {...state};
         delete newState[meta.name];
         return newState;

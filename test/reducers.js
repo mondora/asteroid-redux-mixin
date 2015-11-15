@@ -16,15 +16,15 @@
 //         });
 //         expect(ret === state).to.equal(true);
 //     });
-//     it("ASTEROID_LOGGED_IN event", () => {
+//     it("ASTEROID_PRIVATE_LOGGED_IN event", () => {
 //         const ret = reducers.loggedIn(undefined, {
-//             type: "ASTEROID_LOGGED_IN"
+//             type: "ASTEROID_PRIVATE_LOGGED_IN"
 //         });
 //         expect(ret).to.equal(true);
 //     });
-//     it("ASTEROID_LOGGED_OUT event", () => {
+//     it("ASTEROID_PRIVATE_LOGGED_OUT event", () => {
 //         const ret = reducers.loggedIn(undefined, {
-//             type: "ASTEROID_LOGGED_OUT"
+//             type: "ASTEROID_PRIVATE_LOGGED_OUT"
 //         });
 //         expect(ret).to.equal(false);
 //     });
@@ -44,18 +44,18 @@
 //         });
 //         expect(ret === state).to.equal(true);
 //     });
-//     it("ASTEROID_LOGGED_IN event", () => {
+//     it("ASTEROID_PRIVATE_LOGGED_IN event", () => {
 //         const ret = reducers.userId(undefined, {
-//             type: "ASTEROID_LOGGED_IN",
+//             type: "ASTEROID_PRIVATE_LOGGED_IN",
 //             payload: {
 //                 userId: "userId"
 //             }
 //         });
 //         expect(ret).to.equal("userId");
 //     });
-//     it("ASTEROID_LOGGED_OUT event", () => {
+//     it("ASTEROID_PRIVATE_LOGGED_OUT event", () => {
 //         const ret = reducers.userId(undefined, {
-//             type: "ASTEROID_LOGGED_OUT"
+//             type: "ASTEROID_PRIVATE_LOGGED_OUT"
 //         });
 //         expect(ret === null).to.equal(true);
 //     });

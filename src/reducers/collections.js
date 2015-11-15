@@ -1,8 +1,8 @@
 import {
-    ASTEROID_COLLECTION_ADD,
-    ASTEROID_COLLECTION_CHANGE,
-    ASTEROID_COLLECTION_REMOVE
-} from "../actions/collections";
+    ASTEROID_PRIVATE_COLLECTION_ADD,
+    ASTEROID_PRIVATE_COLLECTION_CHANGE,
+    ASTEROID_PRIVATE_COLLECTION_REMOVE
+} from "../private-actions/collections";
 
 function add (collection, {id, fields = {}}) {
     const element = {...fields, _id: id};
@@ -23,11 +23,11 @@ function remove (collection, {id}) {
 
 function collection (state = {}, {type, payload}) {
     switch (type) {
-    case ASTEROID_COLLECTION_ADD:
+    case ASTEROID_PRIVATE_COLLECTION_ADD:
         return add(state, payload);
-    case ASTEROID_COLLECTION_CHANGE:
+    case ASTEROID_PRIVATE_COLLECTION_CHANGE:
         return change(state, payload);
-    case ASTEROID_COLLECTION_REMOVE:
+    case ASTEROID_PRIVATE_COLLECTION_REMOVE:
         return remove(state, payload);
     default:
         return state;
@@ -37,9 +37,9 @@ function collection (state = {}, {type, payload}) {
 export function collections (state = {}, action) {
     const {type, payload} = action;
     switch (type) {
-    case ASTEROID_COLLECTION_ADD:
-    case ASTEROID_COLLECTION_CHANGE:
-    case ASTEROID_COLLECTION_REMOVE:
+    case ASTEROID_PRIVATE_COLLECTION_ADD:
+    case ASTEROID_PRIVATE_COLLECTION_CHANGE:
+    case ASTEROID_PRIVATE_COLLECTION_REMOVE:
         const {collectionName} = payload;
         return {
             ...state,
