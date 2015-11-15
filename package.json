@@ -2,7 +2,7 @@
   "name": "asteroid-redux-mixin",
   "version": "1.0.0",
   "description": "Asteroid-Redux bridge",
-  "main": "lib/mixin.js",
+  "main": "lib/middleware.js",
   "scripts": {
     "build": "babel src --out-dir lib",
     "clean": "rimraf lib coverage",
