@@ -3,21 +3,29 @@ import {bindActionCreators} from "redux";
 import * as collectionsActions from "./private-actions/collections";
 import * as loginActions from "./private-actions/login";
 
-import * as publicActions from "./actions";
+import {
+    ASTEROID_PUBLIC_LOGIN,
+    ASTEROID_PUBLIC_LOGOUT,
+    ASTEROID_PUBLIC_LOGIN_WITH_PASSWORD,
+    ASTEROID_PUBLIC_CREATE_USER,
+    ASTEROID_PUBLIC_APPLY,
+    ASTEROID_PUBLIC_CALL,
+    ASTEROID_PUBLIC_SUBSCRIBE
+} from "./actions";
 
-import * as loginHandlers from "./handlers/login";
-import * as methodsHandlers from "./handlers/methods";
-import * as passwordLoginHandlers from "./handlers/password-login";
-import * as subscriptionsHandlers from "./handlers/subscriptions";
+import {login, logout} from "./handlers/login";
+import {apply, call} from "./handlers/methods";
+import {createUser, loginWithPassword} from "./handlers/password-login";
+import {subscribe} from "./handlers/subscriptions";
 
 const typeHandlerMap = {
-    [publicActions.ASTEROID_PUBLIC_LOGIN]: loginHandlers.login,
-    [publicActions.ASTEROID_PUBLIC_LOGOUT]: loginHandlers.logout,
-    [publicActions.ASTEROID_PUBLIC_LOGIN_WITH_PASSWORD]: passwordLoginHandlers.loginWithPassword,
-    [publicActions.ASTEROID_PUBLIC_CREATE_USER]: passwordLoginHandlers.createUser,
-    [publicActions.ASTEROID_PUBLIC_APPLY]: methodsHandlers.apply,
-    [publicActions.ASTEROID_PUBLIC_CALL]: methodsHandlers.call,
-    [publicActions.ASTEROID_PUBLIC_SUBSCRIBE]: subscriptionsHandlers.subscibe
+    [ASTEROID_PUBLIC_LOGIN]: login,
+    [ASTEROID_PUBLIC_LOGOUT]: logout,
+    [ASTEROID_PUBLIC_LOGIN_WITH_PASSWORD]: loginWithPassword,
+    [ASTEROID_PUBLIC_CREATE_USER]: createUser,
+    [ASTEROID_PUBLIC_APPLY]: apply,
+    [ASTEROID_PUBLIC_CALL]: call,
+    [ASTEROID_PUBLIC_SUBSCRIBE]: subscribe
 };
 
 export default function getAsteroidMiddleware (asteroid) {
