@@ -22,7 +22,7 @@ const typeHandlerMap = {
 
 export const ASTEROID = Symbol("ASTEROID");
 
-export function asteroidMiddleware (asteroid) {
+export default function getAsteroidMiddleware (asteroid) {
     return store => {
         /*
         *   Dispatch actions on collection events
@@ -48,8 +48,9 @@ export function asteroidMiddleware (asteroid) {
             const {type, payload, meta} = action;
             if (meta !== ASTEROID) {
                 next(action);
+            } else {
+                typeHandlerMap[type](asteroid, next, payload.args);
             }
-            typeHandlerMap[type](asteroid, next, payload.args);
         };
     };
 }
