@@ -1,10 +1,7 @@
-import {ASTEROID} from "./middleware";
-
 function createMethod (type) {
     return (...args) => ({
         type,
-        payload: {args},
-        meta: ASTEROID
+        payload: {args}
     });
 }
 

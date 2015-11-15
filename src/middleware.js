@@ -20,8 +20,6 @@ const typeHandlerMap = {
     [publicActions.ASTEROID_PUBLIC_SUBSCRIBE]: subscriptionsHandlers.subscibe
 };
 
-export const ASTEROID = Symbol("ASTEROID");
-
 export default function getAsteroidMiddleware (asteroid) {
     return store => {
         /*
@@ -45,11 +43,12 @@ export default function getAsteroidMiddleware (asteroid) {
         *   Return the rest of the middleware
         */
         return next => action => {
-            const {type, payload, meta} = action;
-            if (meta !== ASTEROID) {
-                next(action);
+            const {type, payload} = action;
+            const handler = typeHandlerMap[type];
+            if (handler) {
+                handler(asteroid, next, payload.args);
             } else {
-                typeHandlerMap[type](asteroid, next, payload.args);
+                next(action);
             }
         };
     };
