@@ -10,7 +10,7 @@ function add (collection, {id, fields = {}}) {
 }
 
 function change (collection, {id, fields = {}, cleared = []}) {
-    const element = {...collection[id], fields};
+    const element = {...collection[id], ...fields};
     cleared.forEach(key => delete element[key]);
     return {...collection, [id]: element};
 }
