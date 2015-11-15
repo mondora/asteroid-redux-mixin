@@ -6,7 +6,7 @@ import {
     createUserStart,
     createUserSuccess,
     createUserFail
-} from "../actions/password-login";
+} from "../private-actions/password-login";
 
 export function loginWithPassword (asteroid, dispatch, args) {
     dispatch(loginStart());
