@@ -1,3 +1,4 @@
+import AsteroidError from "../common/asteroid-error";
 import {
     loginStart,
     loginFail
@@ -11,8 +12,8 @@ import {
 export function loginWithPassword (asteroid, dispatch, args) {
     dispatch(loginStart());
     asteroid.loginWithPassword(...args)
-        .catch(({error}) => dispatch(
-            loginFail(new Error(error))
+        .catch(error => dispatch(
+            loginFail(new AsteroidError(error))
         ));
 }
 
@@ -22,7 +23,7 @@ export function createUser (asteroid, dispatch, args) {
         .then(userId => dispatch(
             createUserSuccess(userId)
         ))
-        .catch(({error}) => dispatch(
-            createUserFail(new Error(error))
+        .catch(error => dispatch(
+            createUserFail(new AsteroidError(error))
         ));
 }

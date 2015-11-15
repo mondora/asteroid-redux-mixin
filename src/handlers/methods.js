@@ -1,3 +1,4 @@
+import AsteroidError from "../common/asteroid-error";
 import {start, success, fail} from "../private-actions/methods";
 
 export function apply (asteroid, dispatch, [name, args]) {
@@ -6,8 +7,8 @@ export function apply (asteroid, dispatch, [name, args]) {
         .then(result => dispatch(
             success(name, result)
         ))
-        .catch(({error}) => dispatch(
-            fail(name, new Error(error))
+        .catch(error => dispatch(
+            fail(name, new AsteroidError(error))
         ));
 }
 

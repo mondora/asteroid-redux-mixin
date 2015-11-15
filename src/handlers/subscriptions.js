@@ -1,3 +1,4 @@
+import AsteroidError from "../common/asteroid-error";
 import {start, ready, stop, fail} from "../private-actions/subscriptions";
 
 export function subscribe (asteroid, dispatch, [name, ...args]) {
@@ -9,7 +10,7 @@ export function subscribe (asteroid, dispatch, [name, ...args]) {
         .on("stop", () => dispatch(
             stop(name)
         ))
-        .on("error", ({error}) => dispatch(
-            fail(name, new Error(error))
+        .on("error", error => dispatch(
+            fail(name, new AsteroidError(error))
         ));
 }
