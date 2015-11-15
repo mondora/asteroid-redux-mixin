@@ -1,30 +1,34 @@
 import {bindActionCreators} from "redux";
-import * as actions from "./actions";
 
-const SERVICE_CONFIG_COLLECTION = "meteor_accounts_loginServiceConfiguration";
+import * as collectionsActions from "./actions/collections";
+import * as loginActions from "./actions/login";
 
-export function init ({reduxStore, collectionsStatePath = ["collections"]}) {
+export function init ({reduxStore}) {
+
     this.reduxStore = reduxStore;
-    this.collectionsStatePath = collectionsStatePath;
+
+    /*
+    *   Collection events
+    */
     const {
-        add, change, remove, logIn, logOut
-    } =  bindActionCreators(actions, reduxStore.dispatch);
+        add, change, remove
+    } =  bindActionCreators(collectionsActions, reduxStore.dispatch);
     this.ddp.on("added", add);
     this.ddp.on("changed", change);
     this.ddp.on("removed", remove);
-    this.on("loggedIn", logIn);
-    this.on("loggedOut", logOut);
+
+    /*
+    *   Login events
+    */
+    const {
+        loginSuccess, logoutSuccess
+    } =  bindActionCreators(loginActions, reduxStore.dispatch);
+    this.on("loggedIn", loginSuccess);
+    this.on("loggedOut", logoutSuccess);
+
 }
 
-export function getServiceConfig (providerName) {
-    const state = this.reduxStore.getState();
-    const serviceConfig = this.collectionsStatePath
-        .concat([SERVICE_CONFIG_COLLECTION])
-        .reduce((collections, step) => collections[step], state)
-        .find(serviceConfig => serviceConfig.service === providerName);
-    if (serviceConfig) {
-        return serviceConfig;
-    } else {
-        throw new Error(`No configuration found for provider ${providerName}`);
-    }
-}
+export * from "./methods/login";
+export * from "./methods/methods";
+export * from "./methods/password-login";
+export * from "./methods/subscriptions";
