@@ -40,10 +40,9 @@ export function collections (state = {}, action) {
     case ASTEROID_PRIVATE_COLLECTION_ADD:
     case ASTEROID_PRIVATE_COLLECTION_CHANGE:
     case ASTEROID_PRIVATE_COLLECTION_REMOVE:
-        const {collectionName} = payload;
         return {
             ...state,
-            [collectionName]: collection(state[collectionName], action)
+            [payload.collection]: collection(state[payload.collection], action)
         };
     default:
         return state;
