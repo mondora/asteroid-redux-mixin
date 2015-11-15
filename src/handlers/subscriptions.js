@@ -1,4 +1,4 @@
-import {start, ready, stop, fail} from "../actions/subscriptions";
+import {start, ready, stop, fail} from "../private-actions/subscriptions";
 
 export function subscribe (asteroid, dispatch, [name, ...args]) {
     dispatch(start(name));
